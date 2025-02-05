@@ -1,9 +1,7 @@
 import express from 'express';
 
 import dotenv from 'dotenv';
-import swaggerUi from 'swagger-ui-express'
 import testRoutes from './routes/testRoutes';
-import swaggerDocs from './config/swagger';
 import userRoutes from './routes/userRoutes';
 import authRoutes from './routes/authRoutes';
 import mongoose from 'mongoose';
@@ -42,8 +40,6 @@ app.use('/users', userRoutes)
 // Routes d'authentification
 app.use('/auth', authRoutes);
 
-// Swagger route
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${process.env.API_URL}:${PORT}`);
